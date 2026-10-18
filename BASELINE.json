@@ -1,0 +1,49 @@
+{
+  "product": "Prued FX",
+  "version": "1.0.0",
+  "vendor": "Yuay Sound Records",
+  "bundle_id": "com.YuaySoundRecords.PruedFX",
+  "architecture": "arm64",
+  "recovered_from": "Installed macOS VST3 bundle",
+  "source_code_found": false,
+  "runtime_tested_in_this_session": false,
+  "codesign_verification": {
+    "command": "codesign --verify --deep --strict",
+    "exit_code": 0,
+    "meaning": "Local bundle signature integrity only; not a notarization or DAW test"
+  },
+  "archive": "artifacts/Prued-FX-1.0.0-macOS-arm64.vst3.zip",
+  "archive_sha256": "344e5137ef602dad28d606fab0d57d4372b7dcb7828b4d55a0c9260ddc35ea07",
+  "files": [
+    {
+      "path": "Contents/Info.plist",
+      "bytes": 1325,
+      "sha256": "a12c9f59fb054b3027abf8b0094311613ff198ec2032f7b1d0ffb45170410877"
+    },
+    {
+      "path": "Contents/MacOS/Prued FX",
+      "bytes": 39488832,
+      "sha256": "67c48e542d30a906cb85476b1303d5c3b207c546be3e7cf6a9464fa04d8f225b"
+    },
+    {
+      "path": "Contents/PkgInfo",
+      "bytes": 8,
+      "sha256": "d06a80ba92de0833d0ed03de1b02b7c8913f126d9e8c8931b190765dd5d83b11"
+    },
+    {
+      "path": "Contents/Resources/RecentFilesMenuTemplate.nib",
+      "bytes": 2842,
+      "sha256": "718eb4c5a3a5564dd832ae9a36cf649f3ef257ce896dd921693eeb6101bd008a"
+    },
+    {
+      "path": "Contents/Resources/moduleinfo.json",
+      "bytes": 1039,
+      "sha256": "c1b377a78a3ebbd0b098d27179f1e778d28aa67b24f0a387973779e89722d8dc"
+    },
+    {
+      "path": "Contents/_CodeSignature/CodeResources",
+      "bytes": 2712,
+      "sha256": "374b92f8e0796ec79e9e2452441eeb4ff148aabf55038f0dba6a9ea6700f7bda"
+    }
+  ]
+}
