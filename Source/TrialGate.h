@@ -6,7 +6,7 @@
 class TrialGate
 {
 public:
-    static constexpr double durationSeconds = 15.0 * 60.0;
+    static constexpr double durationSeconds = 30.0 * 60.0;
     bool consume(int samples, double sampleRate) noexcept
     {
         if(samples>0 && std::isfinite(sampleRate) && sampleRate>0)

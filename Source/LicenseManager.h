@@ -26,7 +26,7 @@ private:
     juce::File cacheFile() const;
     std::atomic<bool> unlocked{false},checking{false};
     mutable juce::CriticalSection lock;
-    juce::String pendingKey,message="Free trial: 15 minutes per instance. Right-click to activate.";
+    juce::String pendingKey,message="Free trial: 30 minutes per instance. Right-click to activate.";
     Verifier verify;
     bool persist=true;
 };

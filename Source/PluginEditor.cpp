@@ -605,7 +605,7 @@ void YuayStutterAudioProcessorEditor::timerCallback()
     {
         expiryNotified=true;
         juce::AlertWindow::showMessageBoxAsync(juce::MessageBoxIconType::InfoIcon,"Prued FX Trial",
-            "The 15-minute trial has ended. Audio now passes through dry.\nRemove and reinsert the plugin to try again, or right-click and activate your Gumroad license.");
+            "The 30-minute trial has ended. Audio now passes through dry.\nRemove and reinsert the plugin to try again, or right-click and activate your Gumroad license.");
     }
     // ==========================
     // STUTTER

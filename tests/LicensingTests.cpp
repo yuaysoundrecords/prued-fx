@@ -20,11 +20,12 @@ int main(int argc,char** argv)
             return 0;
         }
         TrialGate trial;
-        require(trial.consume(48000*899,48000),"trial expired before 15 minutes");
+        require(trial.consume(48000*900,48000),"trial still expires at the old 15-minute limit");
+        require(trial.consume(48000*899,48000),"trial expired before 30 minutes");
         require(trial.consume(47999,48000),"trial expired before last sample");
-        require(!trial.consume(1,48000),"trial did not expire at 900 seconds");
+        require(!trial.consume(1,48000),"trial did not expire at 1800 seconds");
         require(!trial.consume(100,96000),"sample-rate change reset expired trial");
-        TrialGate reinserted;require(reinserted.remaining()==900,"new instance did not reset trial");
+        TrialGate reinserted;require(reinserted.remaining()==1800,"new instance did not reset trial");
         auto response=juce::JSON::parse(R"({"success":true,"purchase":{"product_id":"raUk5vGzn7s8SxrosloWIQ==","refunded":false,"disputed":false,"chargebacked":false}})");
         require(LicenseManager::evaluate(response).valid,"valid license rejected");
         auto object=response["purchase"].getDynamicObject();
@@ -47,12 +48,18 @@ int main(int argc,char** argv)
         // remain expired after prepare/reload-state. No production clock override.
         YuayStutterAudioProcessor processor(false,[](const juce::String&){return LicenseManager::Result{true,false,{}};});
         processor.apvts.getParameter("STUTTER")->setValueNotifyingHost(1);
+        require(processor.trialRemainingSeconds()==1800,"new processor did not start with 30 minutes");
         processor.prepareToPlay(64,64);
         juce::AudioBuffer<float> audio(2,64);juce::MidiBuffer midi;
-        for(int second=0;second<901;++second)
+        for(int second=0;second<1801;++second)
         {
             for(int ch=0;ch<2;++ch)for(int s=0;s<64;++s)audio.setSample(ch,s,0.25f);
             processor.processBlock(audio,midi);
+            if(second==900)
+            {
+                require(processor.trialRemainingSeconds()>0,"actual processor expired at old 15-minute limit");
+                require(std::abs(audio.getSample(0,63)-0.25f)>0.1f,"actual processor bypassed at old 15-minute limit");
+            }
         }
         require(processor.trialRemainingSeconds()==0,"processor did not expire");
         require(std::abs(audio.getSample(0,63)-0.25f)<0.000001f,"expiry did not return unity dry audio");
@@ -72,7 +79,7 @@ int main(int argc,char** argv)
             processor.processBlock(audio,midi);
         }
         require(std::abs(audio.getSample(0,127)-0.25f*juce::Decibels::decibelsToGain(-12.0f))<0.00001f,"paid activation did not restore effect processing after trial expiry");
-        std::cout<<"PASS: exact 15-minute expiry; new-instance reset; prepare/preset cannot reset; dry expiry; async license validation; invalid/refunded/disputed/wrong-product keys rejected; no keys in presets\n";
+        std::cout<<"PASS: active at old 15-minute limit; exact 30-minute expiry; new-instance reset; prepare/preset cannot reset; dry expiry; async license validation; invalid/refunded/disputed/wrong-product keys rejected; no keys in presets\n";
         return 0;
     }
     catch(const std::exception& error){std::cerr<<"FAIL: "<<error.what()<<'\n';return 1;}

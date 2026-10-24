@@ -78,10 +78,10 @@ three original readout rectangles; 589 changed pixels are confined to fonts.
 
 ## Licensing and trial checks
 
-The local suite passes seven tests, including TransportAutomationStress
+The earlier 2.0.0 local suite passed seven tests, including TransportAutomationStress
 and LicensingTests. Stress covers 15 sample-rate/block-size combinations, tempo
 changes, play/stop/seek and rapid MIDI CC automation with finite bounded output.
-The actual processor expires after 900 seconds of processed audio, fades to unity
+The actual processor expires after 1800 seconds of processed audio, fades to unity
 dry, remains expired across prepare/preset reload and resumes processing after
 injected accepted-key verification. Parsing tests reject wrong-product, refunded,
 chargeback and disputed purchases. Keys are not serialized in presets.
@@ -117,4 +117,10 @@ dry output through the actual loaded VST3 module.
 No real DAW listening session, DAW automation stress test, audio-interface dropout
 test, or Windows signing verification is represented as passed. This is an
 unsigned test build. Follow TESTING-TH.md for installation and acceptance checks.
-No installed plugin was replaced. No changes were made to main or pushed to GitHub.
+No installed plugin was replaced and main remains unchanged. Windows 2.0.0 was later accepted by the creator and published to Gumroad/GitHub on 24 October 2026; see reports/USER_ACCEPTANCE.md and RELEASE-STATUS.md on the published branch.
+
+## 2.0.1 demo-duration update
+
+Demo duration is now 1800 seconds (30 minutes) per instance. The licensing regression explicitly checks that processing remains enabled at the old 900-second limit, expires at 1800 seconds, and retains reload/preset/license behavior. This patch is built/tested separately; the earlier creator acceptance refers to 2.0.0 RC2. The optional actual recovered-1.0.0-module comparison is unavailable after the previous build cache cleanup; it passed for 2.0.0. Current legacy-state fixtures remain in the fresh suite.
+
+The fresh Windows 2.0.1 Release build passed all 6 available tests, including the old-15-minute cutoff and exact-30-minute expiry regression, actual VST3 host bypass, original UI, legacy state, DSP/MIDI and transport stress. The installed plugin was not replaced.

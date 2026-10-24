@@ -6,9 +6,9 @@ activate a Gumroad key, or open the purchase page.
 
 ## Free use
 
-Each plugin instance allows 900 seconds of processed audio. At expiry the effect
+Each plugin instance allows 1800 seconds of processed audio. At expiry the effect
 fades to unity dry input over 5 ms; it does not mute the track. Remove the plugin
-and insert a new instance to start another 15 minutes. Closing the editor,
+and insert a new instance to start another 30 minutes. Closing the editor,
 loading a preset, changing sample rate, or stopping/restarting processing does
 not reset the existing instance. Offline rendering also consumes processed time.
 

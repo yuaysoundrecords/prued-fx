@@ -1,9 +1,11 @@
-# Release status — 24 October 2026
+# Release status — Windows 2.0.1 / 30-minute demo
 
-Windows 2.0.0 is published at https://benjilennon.gumroad.com/l/rkpck with update notes, the accepted Windows ZIP, and Gumroad license-key content. The public free-trial ZIP is artifacts/Prued-FX-2.0.0-Windows-x64.zip on this branch. It is the same binary; a key unlocks unlimited use. Creator accepted RC2 after the bypass and knob-drift fixes. Automated checks passed 7/7.
+Updated 24 October 2026. TrialGate::durationSeconds is 1800 seconds (30 minutes) per plugin instance on Windows and in the shared Mac source. Remove/reinsert resets the demo. The same Gumroad product/key unlocks unlimited use. Main and original UI/plugin/parameter IDs are unchanged.
 
-Windows binary SHA-256: a0ba41b6f60f6385ca687ac24dba0bd38e6ca6c6aad744cd6120a07c7db8c0e6
-Windows ZIP SHA-256: 1ab73d74ebfd86fd09dd9085cb33dbfc4d98ec527f69c6c3e91eb1b230c9f5b1
+Windows 2.0.1 is uploaded to the existing Gumroad product: https://benjilennon.gumroad.com/l/rkpck . Select Prued-FX-2.0.1-Windows-x64; 2.0.0 is the previous 15-minute version. The fresh Windows suite passed all 6 available tests, including active processing after the old 15-minute cutoff, exact 30-minute expiry, preset/reload rules, paid unlock fixtures, UI/knob/bypass, DSP/MIDI stress and actual VST3 host loading. Earlier 2.0.0 creator acceptance and 7-test legacy-module coverage remain historical evidence.
+
+Windows 2.0.1 binary SHA-256: 0c8bb1999ee44a23f98b5a1f4722453185afed4a96e55d7e73a28f4dca02d39e
+Windows 2.0.1 ZIP SHA-256: 0316d569183d0dde23208aa589ad49c699ac2b482c93f0c0525b786ea9b97d82
 
 ## Continue on Mac
 

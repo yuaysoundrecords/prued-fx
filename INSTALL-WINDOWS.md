@@ -1,4 +1,4 @@
-# Prued FX 2.0.0 — Windows x64 VST3
+# Prued FX 2.0.1 — Windows x64 VST3
 
 ## ติดตั้ง / Install
 
@@ -12,9 +12,9 @@ This update uses the original plugin IDs. Keep a backup of important sessions be
 
 Play audio into the effect, then turn the original Stutter knob to capture and repeat. Return it to zero to release the loop. Fix/Yuay controls refresh behavior. Output, Dry/Wet and Bypass remain in their original positions.
 
-ฟรี 15 นาทีต่อ instance เมื่อครบจะกลับเป็นเสียง dry ถอดแล้วใส่ใหม่เริ่มนับใหม่
+ฟรี 30 นาทีต่อ instance เมื่อครบจะกลับเป็นเสียง dry ถอดแล้วใส่ใหม่เริ่มนับใหม่
 
-Free use lasts 15 minutes of processed audio per instance. At expiry the effect fades to dry; the track is not muted. Remove and reinsert the plugin for another 15 minutes. Closing the editor or loading a preset does not reset the timer.
+Free use lasts 30 minutes of processed audio per instance. At expiry the effect fades to dry; the track is not muted. Remove and reinsert the plugin for another 30 minutes. Closing the editor or loading a preset does not reset the timer.
 
 ## ปลดล็อก / Activate
 

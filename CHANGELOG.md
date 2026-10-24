@@ -1,3 +1,9 @@
+# Prued FX 2.0.1 — 24 October 2026
+
+- Extended the free demo from 15 to 30 minutes of processed audio per plugin instance.
+- Remove and reinsert the plugin to restart the demo; the same Gumroad key unlocks unlimited use.
+- Existing interface, Stutter engine, Bypass fixes, presets and license compatibility are retained.
+
 # Prued FX 2.0.0 — Windows
 
 Released for Windows on 23 October 2026. Creator accepted the Windows RC2 build.

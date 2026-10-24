@@ -1,7 +1,8 @@
 {
   "product": "Prued FX",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "architecture": "Windows x64",
+  "trial_seconds": 1800,
   "source_recovery_commit": "c63d74c",
   "branch": "feature/prued-fx-2-performance-looper",
   "juce": "8.0.12",
@@ -10,14 +11,14 @@
     "ABCDEF011234ABCD4D616E7559554159"
   ],
   "original_macos_baseline_sha256": "344e5137ef602dad28d606fab0d57d4372b7dcb7828b4d55a0c9260ddc35ea07",
-  "package_sha256": "9e0a66d506678750eca41e7bb2bc1f518bb0e69942fc9bcd8dbb5537c7a74e40",
-  "package_bytes": 37342111,
-  "binary_sha256": "a0ba41b6f60f6385ca687ac24dba0bd38e6ca6c6aad744cd6120a07c7db8c0e6",
+  "package_sha256": "1a5e26b7fdb9f904075193dd7d49b1e09c8bd18dc249e2998900b6a7151b5b59",
+  "package_bytes": 37342503,
+  "binary_sha256": "0c8bb1999ee44a23f98b5a1f4722453185afed4a96e55d7e73a28f4dca02d39e",
   "binary_bytes": 41664512,
-  "automated_tests": "7/7 passed; reports/automated-tests.log",
+  "automated_tests": "6/6 passed; reports/automated-tests.log",
   "real_daw_listening_tested": false,
   "files": {
-    "Contents/Resources/moduleinfo.json": "1b0f17ba4fd1383675a98ce4403e6e966b7dddee1571a7cfefd2c54811c635fd",
-    "Contents/x86_64-win/Prued FX.vst3": "a0ba41b6f60f6385ca687ac24dba0bd38e6ca6c6aad744cd6120a07c7db8c0e6"
+    "Contents/Resources/moduleinfo.json": "64b953cc6f519af97b5337bd7937802a951c48085366ab6d27365b803c54bcae",
+    "Contents/x86_64-win/Prued FX.vst3": "0c8bb1999ee44a23f98b5a1f4722453185afed4a96e55d7e73a28f4dca02d39e"
   }
 }

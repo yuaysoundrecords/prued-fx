@@ -15,7 +15,7 @@ Source เดิมกู้คืนจาก `D:\JUICED\Yuay Stutter.rar` แ�
 
 - ปุ่ม Stutter เดิมใช้ DSP แบบ performance loop โดยตรง ไม่มีโหมด Looper แยก
 - ปุ่มเดียวควบคุมความเข้มและอัตราซ้ำ; เพิ่ม Beat Sync, Recapture และ crossfade ในการทำงานภายใน
-- ฟรี 15 นาทีต่อ instance; ครบเวลาแล้ว fade กลับ dry ถอดแล้วใส่ใหม่เริ่มนับใหม่ ซื้อคีย์ Gumroad เพื่อปลดล็อกในไฟล์เดิม คลิกขวาเพื่อ Activate ดู [รายละเอียด](LICENSING.md)
+- ฟรี 30 นาทีต่อ instance; ครบเวลาแล้ว fade กลับ dry ถอดแล้วใส่ใหม่เริ่มนับใหม่ ซื้อคีย์ Gumroad เพื่อปลดล็อกในไฟล์เดิม คลิกขวาเพื่อ Activate ดู [รายละเอียด](LICENSING.md)
 - คง VST3 class IDs และ parameter IDs เดิม; เปิด MIDI input ที่เดิมถูกปิดใน build
 - คืน UI เดิมจาก Source ที่กู้มา: artwork, knob filmstrips, ขนาด 718×506 และตำแหน่งเดิมทั้งหมด ปรับเฉพาะฟอนต์ readout ที่มีอยู่สามจุด
 - [Build และทดสอบ Windows](TESTING-TH.md), [ผลตรวจ](reports/VALIDATION.md), [ภาพ UI](reports/ui-preview.png)
