@@ -1,0 +1,29 @@
+{
+  "archive": "D:\\JUICED\\Yuay Stutter.rar",
+  "archive_sha256": "c74d64f2419167d1beeb44c32ac80ac021273a2539765d3adf66bc6067576533",
+  "source_origin": "Source files extracted from the user supplied RAR; identical to the existing D: project.",
+  "version": "1.0.0 (generated plugin defines and bundled moduleinfo); installer filename says 1.0.2",
+  "juce_version": "8.0.12",
+  "manufacturer_code": "Manu",
+  "plugin_code": "YUAY",
+  "processor_cid": "ABCDEF019182FAEB4D616E7559554159",
+  "controller_cid": "ABCDEF011234ABCD4D616E7559554159",
+  "provenance_limit": "Matching IDs and source identity do not prove a bit-for-bit rebuild of the macOS binary.",
+  "files": {
+    "Source/filmstripknob.cpp": "860b3c58ee9e4200bbcc0f69f02df3310858a73aaf9ef150607d602d7e580e92",
+    "Source/filmstripknob.h": "26fbf63b4429f8d25e682e7dc8a7f99d6d996a7a8f816bda013840c791726f41",
+    "Source/PluginEditor.cpp": "0819ef5470204517ab968a804d45cb9b09d22ddee28193599f2a82b7e22f578d",
+    "Source/PluginEditor.h": "c0d1f8b73d82d859a3ff92598aabc7dc4f18819243fa4556792323075e4c733f",
+    "Source/PluginProcessor.cpp": "2ecceb29b321f153ca4f2845a08ec6e71a82695ba4b2c087538ab4a465ddfed1",
+    "Source/PluginProcessor.h": "7143e28531c42fe95171ace2adb0535f0e885cfd357f6820e13485ef07b23ab7",
+    "Source/StutterEngine.cpp": "dec95d39045131e6ca4c47b6f40f5cbd01750479ec7b5c03e9c07f539e00e70d",
+    "Source/StutterEngine.h": "6311261fe96d42545a483056517d2c857c676e093c40679f203d6a7d0c6f6ff9",
+    "assets/background.png": "21648c8b031f481e73f05a89169b8475247fd960b093d989cca5f04cd91fdf8b",
+    "assets/background2.png": "23898df0e7c90613110188b2ad222f2f42f0a6c304d0857acd21e1db7ec5eba3",
+    "assets/JS-Thanaporn-Normal.ttf": "f1df9187f37c7cc46cbd67648b7f67627e61814a564e6feec1ce7e470fbd3a2b",
+    "assets/knob1.png": "a7664d68e0835af442ff768779f58ca48d82ac42406b91c649e6f71ce06d2cc5",
+    "assets/knob2.png": "47a4cd9aa9b73d5689befdfbc680b73edee999859f4b3e62c46280acd904189b",
+    "assets/knob3.png": "c874660fc8e1b29c182e78f113b173aedf8c845dd229ec09a80babbbb88bdbdb",
+    "assets/knob4.png": "c874660fc8e1b29c182e78f113b173aedf8c845dd229ec09a80babbbb88bdbdb"
+  }
+}

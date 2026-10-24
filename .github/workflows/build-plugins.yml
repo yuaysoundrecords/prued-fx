@@ -1,0 +1,74 @@
+name: Build Windows and macOS plugins
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/prued-fx-2-performance-looper]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2025
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get pinned JUCE
+        uses: actions/checkout@v4
+        with:
+          repository: juce-framework/JUCE
+          ref: 8.0.12
+          path: external/JUCE
+      - name: Build and test Windows x64
+        shell: pwsh
+        run: ./scripts/build-windows.ps1 -JucePath "$env:GITHUB_WORKSPACE/external/JUCE"
+      - name: Upload Windows test build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Prued-FX-Windows-x64
+          path: delivery/Prued-FX-2.0.0-Windows-x64-test.zip
+          if-no-files-found: error
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows-test-evidence
+          path: |
+            build/windows/Testing/Temporary/LastTest.log
+            reports/ui-preview.png
+
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get pinned JUCE
+        uses: actions/checkout@v4
+        with:
+          repository: juce-framework/JUCE
+          ref: 8.0.12
+          path: external/JUCE
+      - name: Build Universal and test on native architecture
+        shell: bash
+        run: bash scripts/build-macos.sh --juce "$GITHUB_WORKSPACE/external/JUCE"
+      - name: Upload macOS test build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Prued-FX-macOS-Universal-${{ matrix.runner }}
+          path: delivery/Prued-FX-2.0.0-macOS-Universal-VST3-test.zip
+          if-no-files-found: error
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-test-evidence-${{ matrix.runner }}
+          path: |
+            build/macos/Testing/Temporary/LastTest.log
+            reports/macos/

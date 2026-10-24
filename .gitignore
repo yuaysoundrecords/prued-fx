@@ -5,3 +5,6 @@ __pycache__/
 *.pem
 *.key
 build/
+delivery/
+external/
+release-private/

@@ -1,0 +1,121 @@
+Start testing: Oct 23 15:50 SE Asia Standard Time
+----------------------------------------------------------
+1/7 Testing: PerformanceTests
+1/7 Test: PerformanceTests
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PerformanceTests_artefacts/Release/PerformanceTests.exe"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"PerformanceTests" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: knob boundary jitter does not change repeat rate
+PASS: host grid at sample 6000, maximum seam-fixture step 0.0292788
+PASS: legacy presets, editor state, roundtrip, rates, stereo, recapture, freeze, intensity, MIDI offsets and oversized blocks
+<end of output>
+Test time =   4.98 sec
+----------------------------------------------------------
+Test Passed.
+"PerformanceTests" end time: Oct 23 15:50 SE Asia Standard Time
+"PerformanceTests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+2/7 Testing: TransportAutomationStress
+2/7 Test: TransportAutomationStress
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--stress-only"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"TransportAutomationStress" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: 15 transport/automation scenarios; 44.1/48/96 kHz; blocks 1/16/64/511/4096; BPM 60/120/180; stop/seek; rapid CC1/CC7/recapture; finite bounded output
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"TransportAutomationStress" end time: Oct 23 15:50 SE Asia Standard Time
+"TransportAutomationStress" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: BypassAndKnobRegression
+3/7 Test: BypassAndKnobRegression
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--controls-only"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"BypassAndKnobRegression" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: BYPASS label hit target, editor toggle, host bypass mapping/indicator, unity dry and restored gain; 127 knob frames stay within one pixel
+<end of output>
+Test time =   5.90 sec
+----------------------------------------------------------
+Test Passed.
+"BypassAndKnobRegression" end time: Oct 23 15:50 SE Asia Standard Time
+"BypassAndKnobRegression" time elapsed: 00:00:05
+----------------------------------------------------------
+
+4/7 Testing: LicensingTests
+4/7 Test: LicensingTests
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/LicensingTests_artefacts/Release/LicensingTests.exe"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"LicensingTests" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: exact 15-minute expiry; new-instance reset; prepare/preset cannot reset; dry expiry; async license validation; invalid/refunded/disputed/wrong-product keys rejected; no keys in presets
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"LicensingTests" end time: Oct 23 15:50 SE Asia Standard Time
+"LicensingTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: OriginalUIRegression
+5/7 Test: OriginalUIRegression
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--ui-only" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/reports/ui-preview.png"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"OriginalUIRegression" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: original UI; 589 pixels changed only in three existing font readouts
+<end of output>
+Test time =   6.43 sec
+----------------------------------------------------------
+Test Passed.
+"OriginalUIRegression" end time: Oct 23 15:50 SE Asia Standard Time
+"OriginalUIRegression" time elapsed: 00:00:06
+----------------------------------------------------------
+
+6/7 Testing: VST3Smoke
+6/7 Test: VST3Smoke
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/VST3Smoke_artefacts/Release/VST3Smoke.exe" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PruedFX_artefacts/Release/VST3/Prued FX.vst3"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"VST3Smoke" start time: Oct 23 15:50 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: actual VST3 host recognizes BYPASS and returns unity dry audio
+PASS: loaded actual VST3, processed stereo audio, restored state, constructed editor: Prued FX
+<end of output>
+Test time =   5.44 sec
+----------------------------------------------------------
+Test Passed.
+"VST3Smoke" end time: Oct 23 15:51 SE Asia Standard Time
+"VST3Smoke" time elapsed: 00:00:05
+----------------------------------------------------------
+
+7/7 Testing: RecoveredVST3Compatibility
+7/7 Test: RecoveredVST3Compatibility
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/VST3Smoke_artefacts/Release/VST3Smoke.exe" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/PruedFX_artefacts/Release/VST3/Prued FX.vst3" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline/../recovered-1.0.0/Prued FX.vst3"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/baseline
+"RecoveredVST3Compatibility" start time: Oct 23 15:51 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+Host parameters: original=6, candidate=2089
+PASS: actual 1.0.0 VST3 state loads with original IDs/order/values; Stutter uses upgraded DSP directly
+PASS: actual VST3 host recognizes BYPASS and returns unity dry audio
+PASS: loaded actual VST3, processed stereo audio, restored state, constructed editor: Prued FX
+<end of output>
+Test time =   5.15 sec
+----------------------------------------------------------
+Test Passed.
+"RecoveredVST3Compatibility" end time: Oct 23 15:51 SE Asia Standard Time
+"RecoveredVST3Compatibility" time elapsed: 00:00:05
+----------------------------------------------------------
+
+End testing: Oct 23 15:51 SE Asia Standard Time

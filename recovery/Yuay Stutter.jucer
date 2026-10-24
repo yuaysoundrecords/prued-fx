@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="L1jBsC" name="Prued FX" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Yuay Sound Records"
+              pluginDesc="One Knob Stutter" pluginName="Prued FX" pluginCode="YUAY">
+  <MAINGROUP id="feD1Sr" name="Prued FX">
+    <FILE id="fMbPUT" name="JS-Thanaporn-Normal.ttf" compile="0" resource="1"
+          file="../JS-Thanaporn-Normal.ttf"/>
+    <FILE id="YvypOF" name="knob4.png" compile="0" resource="1" file="../knob4.png"/>
+    <FILE id="usFOmd" name="knob3.png" compile="0" resource="1" file="../knob3.png"/>
+    <FILE id="vDX0zS" name="knob2.png" compile="0" resource="1" file="../knob2.png"/>
+    <FILE id="KIAFDZ" name="knob1.png" compile="0" resource="1" file="../knob1.png"/>
+    <FILE id="bS1ym7" name="background2.png" compile="0" resource="1" file="../background2.png"/>
+    <FILE id="E2wfCP" name="background.png" compile="0" resource="1" file="../background.png"/>
+    <GROUP id="{44F51E67-4761-607A-F6A5-A62D5CE7C6DE}" name="Source">
+      <FILE id="bn749m" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="PZbCtF" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="aYz41v" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="wcAncI" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="xguYcC" name="StutterEngine.cpp" compile="1" resource="0"
+            file="Source/StutterEngine.cpp"/>
+      <FILE id="LyUnU7" name="StutterEngine.h" compile="0" resource="0" file="Source/StutterEngine.h"/>
+      <FILE id="aDt0Vp" name="filmstripknob.cpp" compile="1" resource="0"
+            file="Source/filmstripknob.cpp"/>
+      <FILE id="UJ3Tgd" name="filmstripknob.h" compile="0" resource="0" file="Source/filmstripknob.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2026 targetFolder="Builds/VisualStudio2026">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Prued FX"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Prued FX"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2026>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

@@ -1,0 +1,16 @@
+{
+  "original_size": [
+    718,
+    506
+  ],
+  "changed_pixels_in_original_readouts": 589,
+  "changed_pixels_elsewhere": 0,
+  "artwork_hashes_unchanged": true,
+  "original_visible_control_bounds_unchanged": true,
+  "bypass_invisible_hit_target": [
+    330,
+    455,
+    58,
+    42
+  ]
+}
