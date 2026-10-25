@@ -1,3 +1,24 @@
+# Release status — Mac 2.0.2 / Windows 2.0.1
+
+25 October 2026. Creator authorized uploading and publishing the Mac 2.0.2 update after reporting dry leakage in Mac 2.0.1.
+
+## macOS 2.0.2
+
+Fixed STUTTER amount being multiplied into internal wet activation. With default Intensity and Mix 100%, settled frozen loops now exclude new live dry input at every active Stutter setting. Demo remains 30 minutes per instance. Original UI, parameter IDs and plugin IDs preserved.
+
+- Native arm64 CTest: 7/7 passed, including a full-processor wet-isolation regression that fails before the fix.
+- Wet-isolation and actual VST3 host load/processing/state/editor/bypass passed on x86_64 via Rosetta.
+- Universal arm64+x86_64 VST3 and optional AU built with JUCE 8.0.12 and Xcode 26.2.
+- Ad-hoc codesign verification and ZIP integrity passed. Developer ID signing/notarization are not included.
+- AU is an optional preview; Logic/auval is untested. Physical Intel runtime, independent real-key/Keychain and real DAW listening are not claimed.
+- Release package: Prued-FX-2.0.2-macOS-Universal.zip
+- Release ZIP SHA-256: c98670f3ec8e9ea49c74d9625a2d50e2416dbf7adc56d2a349c85d90e04f7362
+- VST3 binary SHA-256: 6ae5a51290f546030b2487fc6e913f1f1e713e72bcf581ebcf4310978e6d19d8
+
+The dry-leak fix is in shared source. Windows 2.0.2 has NOT been built or published in this Mac session. Existing Windows release remains 2.0.1.
+
+## Previous Windows release record
+
 # Release status — Windows 2.0.1 / 30-minute demo
 
 Updated 24 October 2026. TrialGate::durationSeconds is 1800 seconds (30 minutes) per plugin instance on Windows and in the shared Mac source. Remove/reinsert resets the demo. The same Gumroad product/key unlocks unlimited use. Main and original UI/plugin/parameter IDs are unchanged.

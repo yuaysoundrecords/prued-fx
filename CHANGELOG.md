@@ -1,3 +1,9 @@
+# Prued FX 2.0.2 — 25 October 2026
+
+- Fixed live dry input leaking into frozen Stutter at partial knob positions, even with Dry/Wet at 100%. Stutter engages the loop and selects repeat rate; it no longer scales internal wet activation by the knob amount.
+- Added a full-processor regression covering five Stutter positions, three Dry/Wet values, three sample rates and return to zero.
+- Preserved the explicit Intensity parameter, 30-minute demo, original interface, plugin IDs and preset parameter values.
+
 # Prued FX 2.0.1 — 24 October 2026
 
 - Extended the free demo from 15 to 30 minutes of processed audio per plugin instance.

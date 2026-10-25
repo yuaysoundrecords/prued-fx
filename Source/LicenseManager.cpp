@@ -1,10 +1,13 @@
+#if defined(__APPLE__)
+ // Include native types before JuceHeader introduces the juce namespace.
+ #include <Security/Security.h>
+#endif
 #include "LicenseManager.h"
 #if JUCE_WINDOWS
  #include <windows.h>
  #include <wincrypt.h>
 #endif
 #if JUCE_MAC
- #include <Security/Security.h>
 namespace
 {
 CFMutableDictionaryRef licenseQuery()

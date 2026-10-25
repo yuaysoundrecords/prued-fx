@@ -22,6 +22,43 @@ static void fill(juce::AudioBuffer<float>& b, float value)
         for (int s = 0; s < b.getNumSamples(); ++s) b.setSample(c, s, value);
 }
 
+// Exercise the complete processor, including both internal and external mix
+// stages. Fresh live input must not leak into an already frozen full-wet loop.
+static void checkFrozenWetMix()
+{
+    for (double rate : {44100.0, 48000.0, 96000.0})
+        for (float amount : {0.03f, 0.15f, 0.42f, 0.75f, 1.0f})
+            for (float mix : {0.0f, 0.5f, 1.0f})
+            {
+                YuayStutterAudioProcessor p(false);
+                set(p,"OUTPUT_LEVEL",0);
+                set(p,"DRY_WET",mix);
+                set(p,"REFRESH_MODE",0);
+                p.prepareToPlay(rate,512);
+                juce::AudioBuffer<float> audio(2,512);
+                juce::MidiBuffer midi;
+                auto process=[&](float input,int blocks)
+                {
+                    for(int b=0;b<blocks;++b)
+                    { fill(audio,input); p.processBlock(audio,midi); }
+                };
+                process(0.5f,200);
+                set(p,"STUTTER",amount);
+                process(0.5f,40);
+                process(-0.5f,40);
+                const float expected=-0.5f+mix;
+                for(int ch=0;ch<2;++ch)
+                    for(int s=0;s<512;++s)
+                        check(std::abs(audio.getSample(ch,s)-expected)<0.00001f,
+                              "live dry input leaked into frozen loop: Stutter amount changed wet mix");
+                set(p,"STUTTER",0);
+                process(-0.5f,4);
+                check(std::abs(audio.getSample(0,511)+0.5f)<0.00001f,
+                      "Stutter zero did not restore live input");
+            }
+    std::cout<<"PASS: complete processor frozen wet isolation at five Stutter amounts, three mix values and three sample rates\n";
+}
+
 int main(int argc, char** argv)
 {
     juce::ScopedJuceInitialiser_GUI init;
@@ -29,6 +66,7 @@ int main(int argc, char** argv)
     {
         if(argc>1 && juce::String(argv[1])=="--controls-only"){runControlsChecks();return 0;}
         if(argc>1 && juce::String(argv[1])=="--stress-only"){runStressChecks();return 0;}
+        if(argc>1 && juce::String(argv[1])=="--wet-mix-only"){checkFrozenWetMix();return 0;}
         // Old APVTS XML state, with the original IDs and no 2.0 parameters.
         YuayStutterAudioProcessor p;
         const auto legacy = juce::parseXML(

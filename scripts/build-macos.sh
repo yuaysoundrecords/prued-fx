@@ -3,7 +3,7 @@
 set -euo pipefail
 project_root="$(cd "$(dirname "$0")/.." && pwd)"
 juce_path="${JUCE_DIR:-$project_root/external/JUCE}"
-build_path="$project_root/build/macos"
+build_path="$project_root/build/macos-make"
 with_au=OFF
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -19,7 +19,7 @@ command -v cmake >/dev/null || { echo 'Install CMake first.' >&2; exit 1; }
 xcodebuild -version
 targets=(PruedFX_VST3 PerformanceTests VST3Smoke LicensingTests)
 [[ "$with_au" == OFF ]] || targets+=(PruedFX_AU)
-cmake -S "$project_root" -B "$build_path" -G Xcode \
+cmake -S "$project_root" -B "$build_path" -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release \
     "-DJUCE_DIR=$juce_path" -DBUILD_TESTING=ON "-DPRUED_BUILD_AU=$with_au" \
     '-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64' -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
 cmake --build "$build_path" --config Release --target "${targets[@]}" --parallel 2
@@ -28,7 +28,7 @@ ctest --test-dir "$build_path" -C Release --output-on-failure --timeout 120
 plugin="$build_path/PruedFX_artefacts/Release/VST3/Prued FX.vst3"
 binary="$plugin/Contents/MacOS/Prued FX"
 # Verify both slices, rather than merely trusting the CMake architecture option.
-lipo -verify_arch arm64 x86_64 "$binary"
+lipo "$binary" -verify_arch arm64 x86_64
 # Local test signing only. Distribution Developer ID signing/notarization is separate.
 codesign --force --deep --sign - "$plugin"
 codesign --verify --deep --strict "$plugin"
@@ -44,7 +44,7 @@ cp "$build_path/Testing/Temporary/LastTest.log" "$reports/automated-tests.log"
 ditto "$plugin" "$delivery/Prued FX.vst3"
 if [[ "$with_au" == ON ]]; then
     au="$build_path/PruedFX_artefacts/Release/AU/Prued FX.component"
-    lipo -verify_arch arm64 x86_64 "$au/Contents/MacOS/Prued FX"
+    lipo "$au/Contents/MacOS/Prued FX" -verify_arch arm64 x86_64
     codesign --force --deep --sign - "$au"
     codesign --verify --deep --strict "$au"
     ditto "$au" "$delivery/Prued FX.component"
@@ -52,7 +52,7 @@ fi
 cp "$project_root/TESTING-MACOS-TH.md" "$delivery/"
 cp "$project_root/LICENSING.md" "$delivery/"
 cp "$reports/ui-preview.png" "$delivery/"
-archive="$project_root/delivery/Prued-FX-2.0.1-macOS-Universal-$format_label-test.zip"
+archive="$project_root/delivery/Prued-FX-2.0.2-macOS-Universal-$format_label-test.zip"
 ditto -c -k --sequesterRsrc --keepParent "$delivery" "$archive"
 {
     printf 'Native test architecture: %s\n' "$(uname -m)"

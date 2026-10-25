@@ -323,7 +323,9 @@ void YuayStutterAudioProcessor::processRange(juce::AudioBuffer<float>& buffer, i
         juce::AudioBuffer<float> view(buffer.getArrayOfWritePointers(), channels, start, n);
         // The existing Stutter control directly drives the upgraded loop engine.
         const float amount = getStutterAmount();
-        performanceLooper.process(view, 0, n, amount, amount * intensityParameter->load(),
+        // Stutter selects the repeat rate and engages/releases the loop. It must
+        // not attenuate wet activation: DRY_WET controls the audible dry blend.
+        performanceLooper.process(view, 0, n, amount, intensityParameter->load(),
             syncParameter->load() > 0.5f,
             lengths[juce::jlimit(0, 6, static_cast<int>(beatsParameter->load()))], isRefreshMode());
         mixSmoother.setTargetValue(dryWetParameter->load());

@@ -1,0 +1,4 @@
+Native test architecture: arm64
+Architectures in the fat file: /Users/yuaysoundrecord/Documents/Codex/2026-10-24/new-chat-2/work/prued-fx/build/macos-make/PruedFX_artefacts/Release/VST3/Prued FX.vst3/Contents/MacOS/Prued FX are: x86_64 arm64 
+b66f30427896c8eb342cc0875eaacfa105a34e856f60c976ac28c8d31c4abb56  /Users/yuaysoundrecord/Documents/Codex/2026-10-24/new-chat-2/work/prued-fx/delivery/Prued-FX-2.0.2-macOS-Universal-VST3-AU-test.zip
+6ae5a51290f546030b2487fc6e913f1f1e713e72bcf581ebcf4310978e6d19d8  /Users/yuaysoundrecord/Documents/Codex/2026-10-24/new-chat-2/work/prued-fx/build/macos-make/PruedFX_artefacts/Release/VST3/Prued FX.vst3/Contents/MacOS/Prued FX

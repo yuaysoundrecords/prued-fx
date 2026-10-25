@@ -1,5 +1,9 @@
 # Prued FX
 
+## 2.0.2 Mac dry-leak fix (25 October 2026)
+
+Fixed the processor passing Stutter amount as an extra wet/dry multiplier. With default Intensity and Dry/Wet at 100%, an engaged frozen loop now excludes new live dry input at every active knob position after its short transition. Explicit Intensity below 100%, bypass, demo expiry and initial capture preparation can still return/blend dry by design. The regression exercises the complete processor at five Stutter amounts, three mix values and three sample rates; it fails before the fix. Demo remains 30 minutes per instance.
+
 ## Prued FX 2.0 — Windows / macOS performance looper
 
 Windows RC2 ผ่านการตรวจรับโดยผู้พัฒนาแล้วเมื่อ 23 ตุลาคม 2026 ดู CHANGELOG.md

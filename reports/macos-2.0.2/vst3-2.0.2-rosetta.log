@@ -1,0 +1,2 @@
+PASS: actual VST3 host recognizes BYPASS and returns unity dry audio
+PASS: loaded actual VST3, processed stereo audio, restored state, constructed editor: Prued FX

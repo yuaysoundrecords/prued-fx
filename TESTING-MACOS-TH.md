@@ -17,7 +17,7 @@ bash scripts/build-macos.sh --juce "$PWD/external/JUCE"
 สคริปต์ build Universal bundle, รัน DSP/preset/VST3-host tests บน architecture native
 ของเครื่องที่ใช้, ตรวจ binary ทั้ง arm64/x86_64 ด้วย lipo, เซ็น ad-hoc สำหรับทดสอบ,
 ตรวจความสมบูรณ์ codesign และจัด ZIP:
-`delivery/Prued-FX-2.0.1-macOS-Universal-VST3-test.zip`
+`delivery/Prued-FX-2.0.2-macOS-Universal-VST3-test.zip`
 
 การมี binary ทั้งสองสถาปัตยกรรมไม่เท่ากับการทดสอบ runtime ทั้งสอง
 workflow `.github/workflows/build-plugins.yml` จึงแยก Apple Silicon และ Intel runners
