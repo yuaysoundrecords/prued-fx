@@ -70,5 +70,5 @@ jobs:
         with:
           name: macOS-test-evidence-${{ matrix.runner }}
           path: |
-            build/macos/Testing/Temporary/LastTest.log
+            build/macos-make/Testing/Temporary/LastTest.log
             reports/macos/

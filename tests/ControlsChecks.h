@@ -13,7 +13,8 @@ inline void runControlsChecks()
     auto* button=dynamic_cast<juce::Button*>(editor.getComponentAt(359,485));
     require(button!=nullptr,"BYPASS text is not clickable");
     require(editor.getComponentAt(332,470)==button && editor.getComponentAt(386,470)==button,"BYPASS click target does not cover its label");
-    const auto before=editor.createComponentSnapshot(editor.getLocalBounds());
+    // Pixel assertions must not depend on the CI runner's GPU/Direct2D readback.
+    const auto before=editor.createComponentSnapshot(editor.getLocalBounds(),true,1.0f,juce::SoftwareImageType{});
     button->setToggleState(true,juce::sendNotification);
     require(p.apvts.getRawParameterValue("BYPASS")->load()==1,"editor bypass click did not reach DSP parameter");
     p.prepareToPlay(48000,256);
@@ -35,7 +36,7 @@ inline void runControlsChecks()
     p.getBypassParameter()->setValueNotifyingHost(1);
     editor.timerCallback();
     require(button->getToggleState(),"host bypass automation did not update editor state");
-    const auto after=editor.createComponentSnapshot(editor.getLocalBounds());
+    const auto after=editor.createComponentSnapshot(editor.getLocalBounds(),true,1.0f,juce::SoftwareImageType{});
     bool changed=false;
     for(int y=459;y<490;++y)for(int x=341;x<375;++x)
         changed=changed || before.getPixelAt(x,y)!=after.getPixelAt(x,y);
@@ -49,11 +50,12 @@ inline void runControlsChecks()
     for(int frame=0;frame<127;++frame)
     {
         knob.setValue(static_cast<float>(frame)/126.f);
-        const auto image=knob.createComponentSnapshot(knob.getLocalBounds());
+        const auto image=knob.createComponentSnapshot(knob.getLocalBounds(),true,1.0f,juce::SoftwareImageType{});
         int top=180,bottom=-1;
         for(int y=0;y<180;++y)for(int x=0;x<180;++x)
             if(image.getPixelAt(x,y).getAlpha()>64){top=juce::jmin(top,y);bottom=juce::jmax(bottom,y);}
-        require(bottom>=top,"knob frame is empty");
+        if(bottom<top)
+            throw std::runtime_error("knob frame is empty at frame "+std::to_string(frame));
         minTop=juce::jmin(minTop,top);maxTop=juce::jmax(maxTop,top);
         minBottom=juce::jmin(minBottom,bottom);maxBottom=juce::jmax(maxBottom,bottom);
     }
