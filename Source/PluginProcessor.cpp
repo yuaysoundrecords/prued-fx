@@ -4,7 +4,7 @@
 
 //==============================================================================
 
-YuayStutterAudioProcessor::YuayStutterAudioProcessor(bool automaticLicenseCheck,LicenseManager::Verifier verifier)
+YuayStutterAudioProcessor::YuayStutterAudioProcessor()
 
 #ifndef JucePlugin_PreferredChannelConfigurations
 
@@ -38,7 +38,7 @@ apvts(
     nullptr,
     "PARAMETERS",
     createParameterLayout()
-), licenseManager(automaticLicenseCheck,std::move(verifier))
+)
 
 #else
 
@@ -48,7 +48,7 @@ apvts(
     nullptr,
     "PARAMETERS",
     createParameterLayout()
-), licenseManager(automaticLicenseCheck,std::move(verifier))
+)
 
 #endif
 
@@ -150,7 +150,7 @@ YuayStutterAudioProcessor::createParameterLayout()
     // ==========================
     // OUTPUT LEVEL
     // -60 dB -> +12 dB
-    // Default = -12 dB
+    // New instances start at unity gain (0 dB).
     // Step = 1 dB
     // ==========================
 
@@ -163,7 +163,7 @@ YuayStutterAudioProcessor::createParameterLayout()
                 12.0f,
                 1.0f
             ),
-            -12.0f
+            0.0f
         )
     );
 
@@ -228,14 +228,11 @@ void YuayStutterAudioProcessor::prepareToPlay(
 )
 {
     maximumBlock = juce::jmax(1, samplesPerBlock);
-    processingRate=sampleRate;
     dryBuffer.setSize(getTotalNumOutputChannels(), maximumBlock);
     performanceLooper.prepare(sampleRate, getTotalNumOutputChannels());
     mixSmoother.reset(sampleRate, 0.005);
     gainSmoother.reset(sampleRate, 0.005);
     bypassSmoother.reset(sampleRate, 0.005);
-    trialBypass.reset(sampleRate,0.005);
-    trialBypass.setCurrentAndTargetValue(licenseManager.isUnlocked() || trialGate.remaining()>0 ? 0.0f:1.0f);
     mixSmoother.setCurrentAndTargetValue(dryWetParameter->load());
     gainSmoother.setCurrentAndTargetValue(juce::Decibels::decibelsToGain(outputLevelParameter->load()));
     bypassSmoother.setCurrentAndTargetValue(bypassParameter->load());
@@ -312,10 +309,6 @@ void YuayStutterAudioProcessor::processRange(juce::AudioBuffer<float>& buffer, i
     while (count > 0)
     {
         int n = juce::jmin(count, maximumBlock);
-        const bool licensed=licenseManager.isUnlocked();
-        const bool trialActive=trialGate.remaining()>1.0e-9;
-        if(!licensed && trialActive)
-            n=juce::jmin(n,juce::jmax(1,static_cast<int>(std::ceil(trialGate.remaining()*processingRate-1.0e-7))));
         const int channels = buffer.getNumChannels();
         for (int ch = 0; ch < channels; ++ch)
             dryBuffer.copyFrom(ch, 0, buffer, ch, start, n);
@@ -331,13 +324,11 @@ void YuayStutterAudioProcessor::processRange(juce::AudioBuffer<float>& buffer, i
         mixSmoother.setTargetValue(dryWetParameter->load());
         gainSmoother.setTargetValue(juce::Decibels::decibelsToGain(outputLevelParameter->load()));
         bypassSmoother.setTargetValue(bypassParameter->load() > 0.5f ? 1.0f : 0.0f);
-        trialBypass.setTargetValue(licensed || trialActive ? 0.0f:1.0f);
         for (int i = 0; i < n; ++i)
         {
             const float mix = mixSmoother.getNextValue();
             const float gain = gainSmoother.getNextValue();
-            const float userBypass = bypassSmoother.getNextValue();
-            const float bypass = 1.0f-(1.0f-userBypass)*(1.0f-trialBypass.getNextValue());
+            const float bypass = bypassSmoother.getNextValue();
             for (int ch = 0; ch < channels; ++ch)
             {
                 const float dry = dryBuffer.getSample(ch, i);
@@ -348,8 +339,6 @@ void YuayStutterAudioProcessor::processRange(juce::AudioBuffer<float>& buffer, i
         }
         start += n;
         count -= n;
-        trialGate.consume(n,processingRate);
-        remainingTrial.store(trialGate.remaining());
     }
 }
 

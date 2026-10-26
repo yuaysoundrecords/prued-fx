@@ -30,7 +30,7 @@ static void checkFrozenWetMix()
         for (float amount : {0.03f, 0.15f, 0.42f, 0.75f, 1.0f})
             for (float mix : {0.0f, 0.5f, 1.0f})
             {
-                YuayStutterAudioProcessor p(false);
+                YuayStutterAudioProcessor p;
                 set(p,"OUTPUT_LEVEL",0);
                 set(p,"DRY_WET",mix);
                 set(p,"REFRESH_MODE",0);
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
         {
             std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
             check(editor->getWidth() == 718 && editor->getHeight() == 506, "original editor dimensions changed");
-            check(editor->getNumChildComponents() == 8, "original main UI controls changed");
+            check(editor->getNumChildComponents() == 9, "original main UI controls changed");
             check(std::abs(p.getStutterAmount() - 0.73f) < 0.001f, "opening editor changed stutter");
             check(p.apvts.getRawParameterValue("OUTPUT_LEVEL")->load() == -5, "editor changed output");
             if (argc > 1)
@@ -100,10 +100,10 @@ int main(int argc, char** argv)
                 YuayStutterAudioProcessor baselineProcessor;
                 RecoveredPruedEditor baselineEditor(baselineProcessor);
                 set(baselineProcessor,"STUTTER",0.42f);
-                set(baselineProcessor,"OUTPUT_LEVEL",-12);
+                set(baselineProcessor,"OUTPUT_LEVEL",0);
                 baselineEditor.timerCallback();
                 auto reference=baselineEditor.createComponentSnapshot(baselineEditor.getLocalBounds(),true,1.0f);
-                const juce::Rectangle<int> readouts[]={{151,372,74,32},{590,193,70,24},{590,328,70,24}};
+                const juce::Rectangle<int> readouts[]={{151,372,74,32},{590,193,70,24},{590,328,70,24},{646,38,58,26}};
                 int changed=0;
                 check(reference.getBounds()==image.getBounds(),"original UI size mismatch");
                 for(int y=0;y<506;++y)

@@ -3,7 +3,7 @@ if(CMAKE_HOST_APPLE)
     set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS Universal architectures")
     set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0" CACHE STRING "Minimum macOS version")
 endif()
-project(PruedFX VERSION 2.0.2 LANGUAGES C CXX)
+project(PruedFX VERSION 2.0.3 LANGUAGES C CXX)
 set(_juce_default "$ENV{JUCE_DIR}")
 if(NOT _juce_default AND WIN32)
     set(_juce_default "D:/JUICED/JUCE")
@@ -37,17 +37,12 @@ juce_add_plugin(PruedFX
     NEEDS_MIDI_OUTPUT FALSE COPY_PLUGIN_AFTER_BUILD FALSE)
 juce_generate_juce_header(PruedFX)
 target_sources(PruedFX PRIVATE Source/PluginProcessor.cpp Source/PluginEditor.cpp
-    Source/StutterEngine.cpp Source/PerformanceLooper.cpp Source/LicenseManager.cpp Source/filmstripknob.cpp)
+    Source/StutterEngine.cpp Source/PerformanceLooper.cpp Source/filmstripknob.cpp)
 target_compile_features(PruedFX PUBLIC cxx_std_17)
 target_compile_definitions(PruedFX PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0
     JUCE_VST3_CAN_REPLACE_VST2=0)
 target_link_libraries(PruedFX PRIVATE PruedArtwork juce::juce_audio_utils
     PUBLIC juce::juce_recommended_config_flags)
-if(WIN32)
-    target_link_libraries(PruedFX PRIVATE crypt32)
-elseif(APPLE)
-    target_link_libraries(PruedFX PRIVATE "-framework Security")
-endif()
 
 include(CTest)
 if(BUILD_TESTING)

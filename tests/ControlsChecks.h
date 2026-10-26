@@ -6,7 +6,7 @@
 inline void runControlsChecks()
 {
     auto require=[](bool ok,const char* why){if(!ok)throw std::runtime_error(why);};
-    YuayStutterAudioProcessor p(false);
+    YuayStutterAudioProcessor p;
     require(p.getBypassParameter()==p.apvts.getParameter("BYPASS"),"host bypass is not the original BYPASS parameter");
     YuayStutterAudioProcessorEditor editor(p);
     editor.setVisible(true);
@@ -32,7 +32,7 @@ inline void runControlsChecks()
         for(int c=0;c<2;++c)for(int s=0;s<256;++s)audio.setSample(c,s,0.3f);
         p.processBlock(audio,midi);
     }
-    require(std::abs(audio.getSample(0,255)-0.3f*juce::Decibels::decibelsToGain(-12.f))<1.e-6f,"unbypass did not restore output gain");
+    require(std::abs(audio.getSample(0,255)-0.3f)<1.e-6f,"unbypass did not restore output gain");
     p.getBypassParameter()->setValueNotifyingHost(1);
     editor.timerCallback();
     require(button->getToggleState(),"host bypass automation did not update editor state");

@@ -16,7 +16,7 @@ inline void runStressChecks()
     for(double rate:{44100.0,48000.0,96000.0})
         for(int size:{1,16,64,511,4096})
         {
-            YuayStutterAudioProcessor processor(false);Head head;processor.setPlayHead(&head);
+            YuayStutterAudioProcessor processor;Head head;processor.setPlayHead(&head);
             processor.prepareToPlay(rate,size);
             juce::AudioBuffer<float> block(2,size);juce::MidiBuffer midi;midi.ensureSize(256);
             int previousEvent=-1;float peak=0;

@@ -37,9 +37,9 @@ Copy-Item -LiteralPath $plugin -Destination $delivery -Recurse -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'TESTING-TH.md') -Destination $delivery -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'LICENSING.md') -Destination $delivery -Force
 Copy-Item -LiteralPath $preview,(Join-Path $reports 'VALIDATION.md') -Destination $delivery -Force
-Compress-Archive -LiteralPath (Join-Path $delivery 'Prued FX.vst3'),(Join-Path $delivery 'TESTING-TH.md'),(Join-Path $delivery 'LICENSING.md'),(Join-Path $delivery 'ui-preview.png'),(Join-Path $delivery 'VALIDATION.md') -DestinationPath (Join-Path $delivery 'Prued-FX-2.0.2-Windows-x64-test.zip') -Force
-Copy-Item -LiteralPath (Join-Path $delivery 'Prued-FX-2.0.2-Windows-x64-test.zip') -Destination (Join-Path $delivery 'Prued-FX-2.0.2-Windows-x64-Demo-30min.zip') -Force
+Compress-Archive -LiteralPath (Join-Path $delivery 'Prued FX.vst3'),(Join-Path $delivery 'TESTING-TH.md'),(Join-Path $delivery 'LICENSING.md'),(Join-Path $delivery 'ui-preview.png'),(Join-Path $delivery 'VALIDATION.md') -DestinationPath (Join-Path $delivery 'Prued-FX-2.0.3-Windows-x64-test.zip') -Force
+Copy-Item -LiteralPath (Join-Path $delivery 'Prued-FX-2.0.3-Windows-x64-test.zip') -Destination (Join-Path $delivery 'Prued-FX-2.0.3-Windows-x64-Free.zip') -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'INSTALL-WINDOWS.md'),(Join-Path $projectRoot 'CHANGELOG.md') -Destination $delivery -Force
-Compress-Archive -LiteralPath (Join-Path $delivery 'Prued FX.vst3'),(Join-Path $delivery 'INSTALL-WINDOWS.md'),(Join-Path $delivery 'CHANGELOG.md'),(Join-Path $delivery 'LICENSING.md') -DestinationPath (Join-Path $delivery 'Prued-FX-2.0.2-Windows-x64.zip') -Force
-Get-FileHash -LiteralPath (Join-Path $delivery 'Prued-FX-2.0.2-Windows-x64-test.zip') -Algorithm SHA256
+Compress-Archive -LiteralPath (Join-Path $delivery 'Prued FX.vst3'),(Join-Path $delivery 'INSTALL-WINDOWS.md'),(Join-Path $delivery 'CHANGELOG.md'),(Join-Path $delivery 'LICENSING.md') -DestinationPath (Join-Path $delivery 'Prued-FX-2.0.3-Windows-x64.zip') -Force
+Get-FileHash -LiteralPath (Join-Path $delivery 'Prued-FX-2.0.3-Windows-x64-test.zip') -Algorithm SHA256
 Write-Host "Ready for DAW testing: $delivery"

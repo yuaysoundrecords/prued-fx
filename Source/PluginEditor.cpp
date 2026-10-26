@@ -232,12 +232,12 @@ addAndMakeVisible(
     // ==========================
     // OUTPUT LEVEL DEFAULT
     //
-    // เปิด plugin = -12 dB
+    // New instance display: unity gain.
     // ==========================
 
     outputLevelKnob.setValue(
         juce::jmap(
-            -12.0f,
+            0.0f,
             -60.0f,
             12.0f,
             0.0f,
@@ -445,7 +445,12 @@ addAndMakeVisible(
     // The mode knob's transparent rectangle overlaps the edge of BYPASS.
     // Keep the existing invisible button above that rectangle for hit testing.
     bypassButton.toFront(false);
-    addMouseListener(this,true);
+    tipButton.setTooltip("Support Yuaylooper on Ko-fi (optional)");
+    tipButton.setColour(juce::TextButton::buttonColourId, juce::Colour(0xffeee7cf));
+    tipButton.setColour(juce::TextButton::textColourOffId, juce::Colour(0xff202c2b));
+    tipButton.onClick = [] { juce::URL("https://ko-fi.com/yuaylooper").launchInDefaultBrowser(); };
+    addAndMakeVisible(tipButton);
+    resized();
     timerCallback();
     startTimerHz(
         30
@@ -493,6 +498,8 @@ const auto& image =
 
 void YuayStutterAudioProcessorEditor::resized()
 {
+    tipButton.setBounds(getWidth() - 72, 38, 58, 26);
+
     // ==========================
     // KNOB 1 - STUTTER
     // ==========================
@@ -595,17 +602,6 @@ void YuayStutterAudioProcessorEditor::timerCallback()
     {
         bypassButton.setToggleState(bypassed, juce::dontSendNotification);
         repaint();
-    }
-    if(waitingForLicenseResult && !audioProcessor.licensing().isChecking())
-    {
-        waitingForLicenseResult=false;
-        juce::AlertWindow::showMessageBoxAsync(juce::MessageBoxIconType::InfoIcon,"Prued FX License",audioProcessor.licensing().status());
-    }
-    if(!expiryNotified && audioProcessor.trialRemainingSeconds()<=0 && !audioProcessor.licensing().isUnlocked())
-    {
-        expiryNotified=true;
-        juce::AlertWindow::showMessageBoxAsync(juce::MessageBoxIconType::InfoIcon,"Prued FX Trial",
-            "The 30-minute trial has ended. Audio now passes through dry.\nRemove and reinsert the plugin to try again, or right-click and activate your Gumroad license.");
     }
     // ==========================
     // STUTTER
@@ -740,38 +736,3 @@ void YuayStutterAudioProcessorEditor::timerCallback()
     }
 }
 
-void YuayStutterAudioProcessorEditor::mouseDown(const juce::MouseEvent& event)
-{
-    if(!event.mods.isPopupMenu() || licenseMenuOpen)return;
-    licenseMenuOpen=true;
-    juce::PopupMenu menu;
-    const auto minutes=juce::jmax(0,static_cast<int>(std::ceil(audioProcessor.trialRemainingSeconds()/60.0)));
-    menu.addItem(100,audioProcessor.licensing().isUnlocked()?"Licensed - unlimited use":"Free trial - "+juce::String(minutes)+" min remaining",false);
-    menu.addSeparator();menu.addItem(1,"Activate / License status...");menu.addItem(2,"Buy a license on Gumroad...");
-    juce::Component::SafePointer<YuayStutterAudioProcessorEditor> safe(this);
-    menu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(this),[safe](int result)
-    {
-        if(!safe)return;
-        safe->licenseMenuOpen=false;
-        if(result==1)safe->showLicenseDialog();
-        if(result==2)juce::URL(LicenseManager::purchaseUrl).launchInDefaultBrowser();
-    });
-}
-void YuayStutterAudioProcessorEditor::showLicenseDialog()
-{
-    auto* dialog=new juce::AlertWindow("Prued FX License",audioProcessor.licensing().status()
-        +"\nEnter the key from your Gumroad receipt. Verification sends this key to Gumroad over HTTPS.",juce::MessageBoxIconType::NoIcon);
-    dialog->addTextEditor("licenseKey",{},"License key:",true);
-    dialog->addButton("Activate",1);dialog->addButton("Cancel",0);
-    juce::Component::SafePointer<YuayStutterAudioProcessorEditor> safe(this);
-    juce::Component::SafePointer<juce::AlertWindow> box(dialog);
-    dialog->enterModalState(true,juce::ModalCallbackFunction::create([safe,box](int result)
-    {
-        if(result==1 && safe && box)
-        {
-            safe->waitingForLicenseResult=safe->audioProcessor.licensing().activate(box->getTextEditorContents("licenseKey"));
-            if(!safe->waitingForLicenseResult)
-                juce::AlertWindow::showMessageBoxAsync(juce::MessageBoxIconType::InfoIcon,"Prued FX License",safe->audioProcessor.licensing().status());
-        }
-    }),true);
-}

@@ -24,7 +24,6 @@ public:
     void resized() override;
 
     void timerCallback() override;
-    void mouseDown(const juce::MouseEvent&) override;
 
 private:
 
@@ -92,8 +91,7 @@ InvisibleButton bypassButton;
     // ==========================
 
     juce::Label stutterValueLabel;
-    void showLicenseDialog();
-    bool licenseMenuOpen=false, waitingForLicenseResult=false, expiryNotified=false;
+    juce::TextButton tipButton { "Tip" };
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(

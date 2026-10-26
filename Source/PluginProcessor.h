@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 #include "PerformanceLooper.h"
-#include "TrialGate.h"
-#include "LicenseManager.h"
 
 
 namespace YuayParameterID
@@ -27,7 +25,7 @@ class YuayStutterAudioProcessor :
 
 public:
 
-    explicit YuayStutterAudioProcessor(bool automaticLicenseCheck=true,LicenseManager::Verifier verifier={});
+    YuayStutterAudioProcessor();
 
     ~YuayStutterAudioProcessor() override;
 
@@ -109,8 +107,6 @@ public:
     float getStutterAmount() const noexcept;
 
     bool isRefreshMode() const noexcept;
-    LicenseManager& licensing() noexcept { return licenseManager; }
-    double trialRemainingSeconds() const noexcept { return remainingTrial.load(); }
 
 
 
@@ -121,14 +117,10 @@ public:
 private:
 
     PerformanceLooper performanceLooper;
-    LicenseManager licenseManager;
-    TrialGate trialGate;
-    std::atomic<double> remainingTrial{TrialGate::durationSeconds};
-    double processingRate=44100.0;
     void processRange(juce::AudioBuffer<float>&, int start, int count);
     juce::AudioBuffer<float> dryBuffer;
     juce::ValueTree defaultState;
-    juce::SmoothedValue<float> mixSmoother, gainSmoother, bypassSmoother, trialBypass;
+    juce::SmoothedValue<float> mixSmoother, gainSmoother, bypassSmoother;
     int maximumBlock = 1;
     bool previousRecapture = false, midiRecaptureDown = false;
     std::atomic<float>* intensityParameter = nullptr;
