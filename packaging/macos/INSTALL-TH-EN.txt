@@ -1,0 +1,48 @@
+Prued FX 2.0.4 — Yuay Sound Records
+macOS Universal: Apple Silicon และ Intel, macOS 11 ขึ้นไป
+
+ภาษาไทย
+ติดตั้ง
+1. ปิด DAW ทั้งหมดก่อน และสำรองโปรเจกต์ที่สำคัญ
+2. เปิด 2.Install-Prued-FX.pkg เพื่อติดตั้ง VST3 และ AU ในตำแหน่งระบบ:
+   /Library/Audio/Plug-Ins/VST3/Prued FX.vst3
+   /Library/Audio/Plug-Ins/Components/Prued FX.component
+3. หากมีสำเนารุ่นเดิมใน ~/Library/Audio/Plug-Ins/VST3/ หรือ ~/Library/Audio/Plug-Ins/Components/ ให้ย้ายสำเนานั้นออกไปเก็บสำรองนอกโฟลเดอร์ปลั๊กอิน เพื่อไม่ให้ DAW พบซ้ำ อย่าลบปลั๊กอินของผลิตภัณฑ์อื่น
+4. หลังติดตั้ง หาก macOS บล็อก Prued FX ให้ปิด DAW แล้วดับเบิลคลิกไฟล์ “1.Mac กดอันนี้ก่อนครับ - Mac Start with This!.command”
+5. อ่านชื่อและเส้นทางที่แสดง ตัวช่วยจะตรวจลายเซ็นและปฏิเสธ symbolic link ก่อน ให้ทำต่อเมื่อเชื่อถือแหล่งดาวน์โหลดเท่านั้น
+6. ตัวช่วยจะถอด com.apple.quarantine เฉพาะ bundle ของ Prued FX ที่แสดง พิมพ์ YES เพื่อยืนยันทีละรายการ หรือกด Enter เพื่อยกเลิก ไม่ปิด Gatekeeper ทั้งเครื่อง และไม่เปลี่ยนทั้งโฟลเดอร์ Plug-Ins
+7. ตำแหน่งระบบอาจขอรหัสผ่าน Mac ขณะพิมพ์จะไม่แสดงตัวอักษรหรือจุด พิมพ์แล้วกด Enter หากไม่ต้องการดำเนินการให้ยกเลิก
+8. เมื่อขึ้นว่าทำสำเร็จ ให้เปิด DAW และสแกนปลั๊กอินใหม่ หากเกิดข้อผิดพลาด ตรวจลายเซ็นไม่ผ่าน หรือไม่พบปลั๊กอิน ให้หยุดและติดต่อ Yuay Sound Records พร้อมข้อความผิดพลาด
+
+ข้อควรทราบเกี่ยวกับ macOS
+ตัวติดตั้งยังไม่ผ่านการเซ็น Developer ID และ Apple notarization ตัวช่วยไม่ใช่การเซ็นหรือ notarization จาก Apple ลายเซ็น ad-hoc ที่ตรวจผ่านบอกได้เพียงว่าไฟล์สอดคล้องกับลายเซ็นนั้น ไม่ได้ยืนยันตัวตนผู้พัฒนา
+macOS อาจบล็อกตัวติดตั้งหรือไฟล์ .command เองได้ หากมีรายการที่ถูกบล็อกใน System Settings > Privacy & Security ให้ตรวจชื่อไฟล์และใช้ Open Anyway เฉพาะเมื่อเชื่อถือแหล่งดาวน์โหลด หากไม่มีตัวเลือกหรือยังเปิดไม่ได้ ให้ติดต่อผู้พัฒนา ไม่ต้องปิด Gatekeeper ทั้งเครื่อง และไม่ต้องรันคำสั่งครอบคลุมโฟลเดอร์ปลั๊กอิน
+ไม่รับประกันว่าใช้ได้กับทุกเครื่องหรือทุก DAW หากระบบระบุว่าพบมัลแวร์หรือจะทำให้เครื่องเสียหาย ให้หยุดและติดต่อผู้พัฒนา
+
+เริ่มใช้
+ใส่ VST3 ในช่องเอฟเฟกต์ของแทร็กเสียง เล่นเสียงก่อนแล้วหมุน Stutter ขึ้นเพื่อจับลูป หมุนกลับศูนย์เพื่อปล่อยเสียง Fix ค้างเสียง Yuay จับใหม่เป็นระยะ Dry/Wet ผสมเสียง Output เริ่มที่ 0 dB และปรับได้เอง โปรเจกต์เก่าเรียกค่าที่บันทึกไว้
+AU เป็นตัวทดลองแบบ MIDI-controlled effect ใน Logic เลือก AU MIDI-controlled Effects > Yuay Sound Records > Prued FX และเลือก Side Chain จากแทร็กเสียง เส้นทางเสียง AU ใน Logic ยังไม่ได้ทดสอบครบ
+ใช้ฟรี ไม่มีคีย์หรือจำกัดเวลา ปุ่ม TIP / KO-FI มุมขวาบนเปิด https://ko-fi.com/yuaylooper เมื่อกดเท่านั้น การให้ทิปเป็นทางเลือก
+
+ENGLISH
+Installation
+1. Quit every DAW and back up important sessions.
+2. Open 2.Install-Prued-FX.pkg. It installs VST3 and AU at:
+   /Library/Audio/Plug-Ins/VST3/Prued FX.vst3
+   /Library/Audio/Plug-Ins/Components/Prued FX.component
+3. If an older copy exists in ~/Library/Audio/Plug-Ins/VST3/ or ~/Library/Audio/Plug-Ins/Components/, move it to a backup outside the plug-in directories to avoid duplicate discovery. Leave other products alone.
+4. After installation, if macOS blocks Prued FX, quit your DAW and double-click “1.Mac กดอันนี้ก่อนครับ - Mac Start with This!.command”.
+5. Review each displayed plug-in name and path. The helper checks signature integrity and rejects symbolic links. Continue only if you trust the download source.
+6. It removes com.apple.quarantine only from the displayed Prued FX bundle. Type YES for each bundle to approve, or press Enter to cancel. Gatekeeper remains enabled; the entire Plug-Ins directory is never targeted.
+7. A system installation may require your Mac password. No letters or dots appear while typing; press Enter afterwards. Cancel if you do not wish to proceed.
+8. After a successful result, reopen your DAW and rescan. Stop and contact Yuay Sound Records if a command fails, verification fails or no plug-in is found. Include the error message.
+
+macOS limitations
+The installer has no Developer ID signature or Apple notarization. The helper is not Apple signing or notarization. A verified ad-hoc signature establishes integrity relative to that signature, not the developer’s identity.
+macOS may block the .command file itself or the installer. If a blocked entry appears in System Settings > Privacy & Security, check the filename and use Open Anyway only if you trust the source. If unavailable or still blocked, contact the developer. Keep Gatekeeper enabled and do not apply commands to entire plug-in folders.
+Compatibility with every Mac or DAW is not guaranteed. Stop if macOS specifically reports malware or damage.
+
+Quick start
+Insert VST3 on an audio track. Play audio, then turn Stutter up to capture a loop and back to zero to release it. Fix holds; Yuay refreshes. Dry/Wet blends; Output starts at 0 dB and remains adjustable. Existing sessions retain saved values.
+AU is a MIDI-controlled preview. In Logic use AU MIDI-controlled Effects > Yuay Sound Records > Prued FX, then choose the source audio track in Side Chain. Complete Logic AU audio-routing validation is pending.
+Free, no key or time limit. The top-right TIP / KO-FI button opens https://ko-fi.com/yuaylooper only when clicked. Support is optional.

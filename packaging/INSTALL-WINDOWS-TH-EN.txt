@@ -1,0 +1,12 @@
+Prued FX 2.0.4 — Yuay Sound Records
+Windows x64 / VST3
+
+ภาษาไทย
+ปิด DAW แตก ZIP คัดลอกทั้งโฟลเดอร์ Prued FX.vst3 ไปที่ C:\Program Files\Common Files\VST3 แทนที่รุ่นเดิม แล้วเปิด DAW สแกนปลั๊กอินใหม่ ไม่ต้องใช้ไฟล์ .command ของ Mac
+ใส่ปลั๊กอินในช่องเอฟเฟกต์ของแทร็กเสียง เล่นเสียงแล้วหมุน Stutter ขึ้นเพื่อจับลูป หมุนกลับศูนย์เพื่อปล่อย Fix ค้างเสียง Yuay จับใหม่เป็นระยะ Dry/Wet ผสมเสียง Output เริ่มที่ 0 dB ปรับได้เอง โปรเจกต์เดิมเรียกค่าที่บันทึกไว้
+ใช้ฟรี ไม่มีคีย์หรือจำกัดเวลา ปุ่ม TIP / KO-FI เปิด https://ko-fi.com/yuaylooper เมื่อกดเท่านั้น ทิปเป็นทางเลือก
+
+ENGLISH
+Quit your DAW. Extract the ZIP and copy the entire Prued FX.vst3 folder into C:\Program Files\Common Files\VST3, replacing the previous version. Reopen and rescan. The Mac .command helper is not used on Windows.
+Insert on an audio track, play audio and turn Stutter up to capture a loop, back to zero to release it. Fix holds; Yuay refreshes. Dry/Wet blends. Output starts at 0 dB and is adjustable. Saved sessions retain their values.
+Free, no key or time limit. TIP / KO-FI opens https://ko-fi.com/yuaylooper only when clicked. Tipping is optional.

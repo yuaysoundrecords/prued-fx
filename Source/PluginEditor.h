@@ -91,7 +91,7 @@ InvisibleButton bypassButton;
     // ==========================
 
     juce::Label stutterValueLabel;
-    juce::TextButton tipButton { "Tip" };
+    juce::ImageButton tipButton { "Tip / Ko-fi" };
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(

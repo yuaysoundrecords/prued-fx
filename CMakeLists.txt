@@ -3,7 +3,7 @@ if(CMAKE_HOST_APPLE)
     set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS Universal architectures")
     set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0" CACHE STRING "Minimum macOS version")
 endif()
-project(PruedFX VERSION 2.0.3 LANGUAGES C CXX)
+project(PruedFX VERSION 2.0.4 LANGUAGES C CXX)
 set(_juce_default "$ENV{JUCE_DIR}")
 if(NOT _juce_default AND WIN32)
     set(_juce_default "D:/JUICED/JUCE")
@@ -24,7 +24,7 @@ if(PRUED_BUILD_AU)
     list(APPEND _prued_formats AU)
 endif()
 juce_add_binary_data(PruedArtwork SOURCES
-    assets/background.png assets/background2.png assets/knob1.png
+    assets/tip-kofi.png assets/background.png assets/background2.png assets/knob1.png
     assets/knob2.png assets/knob3.png assets/knob4.png assets/JS-Thanaporn-Normal.ttf)
 juce_add_plugin(PruedFX
     COMPANY_NAME "Yuay Sound Records"

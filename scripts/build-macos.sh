@@ -52,7 +52,7 @@ fi
 cp "$project_root/TESTING-MACOS-TH.md" "$delivery/"
 cp "$project_root/LICENSING.md" "$delivery/"
 cp "$reports/ui-preview.png" "$delivery/"
-archive="$project_root/delivery/Prued-FX-2.0.3-macOS-Universal-$format_label-test.zip"
+archive="$project_root/delivery/Prued-FX-2.0.4-macOS-Universal-$format_label-test.zip"
 ditto -c -k --sequesterRsrc --keepParent "$delivery" "$archive"
 {
     printf 'Native test architecture: %s\n' "$(uname -m)"

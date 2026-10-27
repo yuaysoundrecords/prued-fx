@@ -446,8 +446,11 @@ addAndMakeVisible(
     // Keep the existing invisible button above that rectangle for hit testing.
     bypassButton.toFront(false);
     tipButton.setTooltip("Support Yuaylooper on Ko-fi (optional)");
-    tipButton.setColour(juce::TextButton::buttonColourId, juce::Colour(0xffeee7cf));
-    tipButton.setColour(juce::TextButton::textColourOffId, juce::Colour(0xff202c2b));
+    auto tipImage = juce::ImageCache::getFromMemory(BinaryData::tipkofi_png, BinaryData::tipkofi_pngSize)
+        .getClippedImage({65, 165, 1920, 455});
+    tipButton.setImages(false, true, true, tipImage, 1.0f, juce::Colours::transparentBlack,
+        tipImage, 0.9f, juce::Colours::transparentBlack,
+        tipImage, 0.75f, juce::Colours::transparentBlack);
     tipButton.onClick = [] { juce::URL("https://ko-fi.com/yuaylooper").launchInDefaultBrowser(); };
     addAndMakeVisible(tipButton);
     resized();
@@ -498,7 +501,7 @@ const auto& image =
 
 void YuayStutterAudioProcessorEditor::resized()
 {
-    tipButton.setBounds(getWidth() - 72, 38, 58, 26);
+    tipButton.setBounds(getWidth() - 198, 45, 184, 44);
 
     // ==========================
     // KNOB 1 - STUTTER

@@ -103,7 +103,7 @@ int main(int argc, char** argv)
                 set(baselineProcessor,"OUTPUT_LEVEL",0);
                 baselineEditor.timerCallback();
                 auto reference=baselineEditor.createComponentSnapshot(baselineEditor.getLocalBounds(),true,1.0f);
-                const juce::Rectangle<int> readouts[]={{151,372,74,32},{590,193,70,24},{590,328,70,24},{646,38,58,26}};
+                const juce::Rectangle<int> readouts[]={{151,372,74,32},{590,193,70,24},{590,328,70,24},{520,45,184,44}};
                 int changed=0;
                 check(reference.getBounds()==image.getBounds(),"original UI size mismatch");
                 for(int y=0;y<506;++y)
