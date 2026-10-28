@@ -1,102 +1,118 @@
-Start testing: Oct 24 20:42 SE Asia Standard Time
+Start testing: Oct 28 15:04 SE Asia Standard Time
 ----------------------------------------------------------
-1/6 Testing: PerformanceTests
-1/6 Test: PerformanceTests
+1/7 Testing: PerformanceTests
+1/7 Test: PerformanceTests
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PerformanceTests_artefacts/Release/PerformanceTests.exe"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"PerformanceTests" start time: Oct 24 20:42 SE Asia Standard Time
+"PerformanceTests" start time: Oct 28 15:04 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
 PASS: knob boundary jitter does not change repeat rate
 PASS: host grid at sample 6000, maximum seam-fixture step 0.0292788
 PASS: legacy presets, editor state, roundtrip, rates, stereo, recapture, freeze, intensity, MIDI offsets and oversized blocks
 <end of output>
-Test time =   9.19 sec
+Test time =  15.35 sec
 ----------------------------------------------------------
 Test Passed.
-"PerformanceTests" end time: Oct 24 20:42 SE Asia Standard Time
-"PerformanceTests" time elapsed: 00:00:09
+"PerformanceTests" end time: Oct 28 15:04 SE Asia Standard Time
+"PerformanceTests" time elapsed: 00:00:15
 ----------------------------------------------------------
 
-2/6 Testing: TransportAutomationStress
-2/6 Test: TransportAutomationStress
+2/7 Testing: FrozenWetMixRegression
+2/7 Test: FrozenWetMixRegression
+Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--wet-mix-only"
+Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
+"FrozenWetMixRegression" start time: Oct 28 15:04 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+PASS: complete processor frozen wet isolation at five Stutter amounts, three mix values and three sample rates
+<end of output>
+Test time =   1.30 sec
+----------------------------------------------------------
+Test Passed.
+"FrozenWetMixRegression" end time: Oct 28 15:04 SE Asia Standard Time
+"FrozenWetMixRegression" time elapsed: 00:00:01
+----------------------------------------------------------
+
+3/7 Testing: TransportAutomationStress
+3/7 Test: TransportAutomationStress
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--stress-only"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"TransportAutomationStress" start time: Oct 24 20:42 SE Asia Standard Time
+"TransportAutomationStress" start time: Oct 28 15:04 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
 PASS: 15 transport/automation scenarios; 44.1/48/96 kHz; blocks 1/16/64/511/4096; BPM 60/120/180; stop/seek; rapid CC1/CC7/recapture; finite bounded output
 <end of output>
-Test time =   0.63 sec
+Test time =   1.23 sec
 ----------------------------------------------------------
 Test Passed.
-"TransportAutomationStress" end time: Oct 24 20:42 SE Asia Standard Time
-"TransportAutomationStress" time elapsed: 00:00:00
+"TransportAutomationStress" end time: Oct 28 15:04 SE Asia Standard Time
+"TransportAutomationStress" time elapsed: 00:00:01
 ----------------------------------------------------------
 
-3/6 Testing: BypassAndKnobRegression
-3/6 Test: BypassAndKnobRegression
+4/7 Testing: BypassAndKnobRegression
+4/7 Test: BypassAndKnobRegression
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--controls-only"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"BypassAndKnobRegression" start time: Oct 24 20:42 SE Asia Standard Time
+"BypassAndKnobRegression" start time: Oct 28 15:04 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
 PASS: BYPASS label hit target, editor toggle, host bypass mapping/indicator, unity dry and restored gain; 127 knob frames stay within one pixel
 <end of output>
-Test time =   7.64 sec
+Test time =  13.58 sec
 ----------------------------------------------------------
 Test Passed.
-"BypassAndKnobRegression" end time: Oct 24 20:43 SE Asia Standard Time
-"BypassAndKnobRegression" time elapsed: 00:00:07
+"BypassAndKnobRegression" end time: Oct 28 15:05 SE Asia Standard Time
+"BypassAndKnobRegression" time elapsed: 00:00:13
 ----------------------------------------------------------
 
-4/6 Testing: LicensingTests
-4/6 Test: LicensingTests
+5/7 Testing: LicensingTests
+5/7 Test: LicensingTests
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/LicensingTests_artefacts/Release/LicensingTests.exe"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"LicensingTests" start time: Oct 24 20:43 SE Asia Standard Time
+"LicensingTests" start time: Oct 28 15:05 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
-PASS: active at old 15-minute limit; exact 30-minute expiry; new-instance reset; prepare/preset cannot reset; dry expiry; async license validation; invalid/refunded/disputed/wrong-product keys rejected; no keys in presets
+PASS: unity default, one hour unrestricted processing, saved output retained
 <end of output>
-Test time =   0.14 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"LicensingTests" end time: Oct 24 20:43 SE Asia Standard Time
+"LicensingTests" end time: Oct 28 15:05 SE Asia Standard Time
 "LicensingTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/6 Testing: OriginalUIRegression
-5/6 Test: OriginalUIRegression
+6/7 Testing: OriginalUIRegression
+6/7 Test: OriginalUIRegression
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PerformanceTests_artefacts/Release/PerformanceTests.exe" "--ui-only" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/reports/ui-preview.png"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"OriginalUIRegression" start time: Oct 24 20:43 SE Asia Standard Time
+"OriginalUIRegression" start time: Oct 28 15:05 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
-PASS: original UI; 589 pixels changed only in three existing font readouts
+PASS: original UI; 8653 pixels changed only in three existing font readouts
 <end of output>
-Test time =  11.62 sec
+Test time =  17.52 sec
 ----------------------------------------------------------
 Test Passed.
-"OriginalUIRegression" end time: Oct 24 20:43 SE Asia Standard Time
-"OriginalUIRegression" time elapsed: 00:00:11
+"OriginalUIRegression" end time: Oct 28 15:05 SE Asia Standard Time
+"OriginalUIRegression" time elapsed: 00:00:17
 ----------------------------------------------------------
 
-6/6 Testing: VST3Smoke
-6/6 Test: VST3Smoke
+7/7 Testing: VST3Smoke
+7/7 Test: VST3Smoke
 Command: "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/VST3Smoke_artefacts/Release/VST3Smoke.exe" "C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows/PruedFX_artefacts/Release/VST3/Prued FX.vst3"
 Directory: C:/Users/YUAY-DESKTOP-PC/Documents/Codex/2026-10-22/prued-fx-2-0-windows-vst3/repo/build/windows
-"VST3Smoke" start time: Oct 24 20:43 SE Asia Standard Time
+"VST3Smoke" start time: Oct 28 15:05 SE Asia Standard Time
 Output:
 ----------------------------------------------------------
 PASS: actual VST3 host recognizes BYPASS and returns unity dry audio
 PASS: loaded actual VST3, processed stereo audio, restored state, constructed editor: Prued FX
 <end of output>
-Test time =   8.62 sec
+Test time =  33.92 sec
 ----------------------------------------------------------
 Test Passed.
-"VST3Smoke" end time: Oct 24 20:43 SE Asia Standard Time
-"VST3Smoke" time elapsed: 00:00:08
+"VST3Smoke" end time: Oct 28 15:05 SE Asia Standard Time
+"VST3Smoke" time elapsed: 00:00:33
 ----------------------------------------------------------
 
-End testing: Oct 24 20:43 SE Asia Standard Time
+End testing: Oct 28 15:05 SE Asia Standard Time

@@ -1,3 +1,11 @@
+# Windows 2.0.4 current validation
+
+Current version is free without activation or time limit, matching Mac 2.0.4. LicensingTests is now the unrestricted processing/unity-default/saved-output regression. FrozenWetMixRegression checks the dry-leak fix. The seven-test suite also covers transport/MIDI stress, bypass/knob stability, original UI comparison and actual VST3 host loading.
+
+Run scripts/build-windows.ps1, then scripts/build-windows-installer.ps1. Test the installer with /CURRENTUSER /DIR pointing at an isolated delivery test directory; compare installed bundle hashes and load that bundle with VST3Smoke. Do not overwrite the installed production plugin during validation.
+
+Earlier test notes below are historical. Their trial/activation steps do not apply to 2.0.4.
+
 # Prued FX 2.0 — Windows x64 VST3 test build
 
 Source ที่กู้มาจาก `D:\JUICED\Yuay Stutter.rar` ถูกเก็บเป็น commit แยกก่อนพัฒนา
@@ -67,3 +75,4 @@ MIDI รับทุก channel และประมวลผลตาม sampl
 - Stutter ใช้ snapshot แยกจึงค้างลูปได้นาน; ค่าและ IDs ของ preset เดิมยังอ่านได้ แต่เสียง Stutter ถูกปรับปรุงตามฟังก์ชัน 2.0 จึงไม่อ้างว่าเสียงเหมือน 1.0 แบบ bit-for-bit
 - เป็น test build ไม่ได้เซ็น Windows Authenticode ผลทดสอบด้วย host อัตโนมัติและภาพ render ไม่ใช่การฟัง/ใช้งานจริงใน DAW
 - ตรวจเฟรมวิดีโอ LOOPERMAN ที่ผู้ใช้ส่งและภาพ Yuay MIDI Port เพื่อเป็นแนวทาง ไม่อ้างว่า reverse-engineer หรือเหมือน DSP ของ LOOPERMAN ทุกประการ
+

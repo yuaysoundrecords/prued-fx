@@ -1,3 +1,15 @@
+# Windows 2.0.4 update — 28 October 2026
+
+Windows now builds from the latest shared Mac 2.0.4 source at 31addc3624262510a934f3f2b9c614e7638f935b. No DSP/editor changes were made in this Windows packaging update. Free without key or time limit, unity default output, fixed full-wet Stutter, supplied Ko-fi artwork.
+
+Windows x64 Release passed all seven automated tests. The new Setup installer passed isolated fresh installation, 2.0.1-to-2.0.4 upgrade, byte/hash comparison and actual installed VST3 host loading. See reports/VALIDATION.md. System-wide administrator/UAC installation and real DAW listening were not run in this session. Installer is unsigned.
+
+Windows Setup is published on the existing Gumroad product: https://benjilennon.gumroad.com/l/rkpck . Filename: Prued-FX-2.0.4-Windows-x64-Setup.exe. The Mac 2.0.4 download is retained.
+
+Build: scripts/build-windows.ps1, then scripts/build-windows-installer.ps1. No changes to main or the original baseline.
+
+The notes below are historical release records. Their demo/key restrictions and statements that Windows is still 2.0.1 do not describe the current 2.0.4 Windows release.
+
 # Release status — Mac 2.0.2 / Windows 2.0.1
 
 25 October 2026. Creator authorized uploading and publishing the Mac 2.0.2 update after reporting dry leakage in Mac 2.0.1.
@@ -40,3 +52,4 @@ bash scripts/build-macos.sh --juce "$PWD/external/JUCE"
 Read AGENTS.md and TESTING-MACOS-TH.md first. Keep main and the original baseline unchanged. Preserve the released UI; the existing Stutter knob directly controls the looper. Source was recovered from the creator's original archive; untouched source copies are in recovery/original/Source. The source tree was imported byte-for-byte from Windows commit ffa498c; local Windows historical commit IDs are provenance references, not commits in this imported branch history.
 
 macOS 2.0 still requires native Apple Silicon and Intel build/runtime checks, Keychain activation/persistence checks, DAW/preset/MIDI validation, and distribution signing/notarization. The existing Gumroad Mac binary is legacy, not 2.0. An independent positive real-key end-to-end test is not claimed; automated license response fixtures passed and the earlier seller test checkout was blocked by CAPTCHA.
+

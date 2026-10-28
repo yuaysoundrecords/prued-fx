@@ -1,8 +1,8 @@
 {
   "product": "Prued FX",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "architecture": "Windows x64",
-  "trial_seconds": 1800,
+  "trial_seconds": null,
   "source_recovery_commit": "c63d74c",
   "branch": "feature/prued-fx-2-performance-looper",
   "juce": "8.0.12",
@@ -11,14 +11,18 @@
     "ABCDEF011234ABCD4D616E7559554159"
   ],
   "original_macos_baseline_sha256": "344e5137ef602dad28d606fab0d57d4372b7dcb7828b4d55a0c9260ddc35ea07",
-  "package_sha256": "1a5e26b7fdb9f904075193dd7d49b1e09c8bd18dc249e2998900b6a7151b5b59",
-  "package_bytes": 37342503,
-  "binary_sha256": "0c8bb1999ee44a23f98b5a1f4722453185afed4a96e55d7e73a28f4dca02d39e",
-  "binary_bytes": 41664512,
-  "automated_tests": "6/6 passed; reports/automated-tests.log",
+  "package_sha256": "103caf6d5d9938feb1b2d46a53ba2cfa8dd6c95cf0474235c9db0bc32cf0e25c",
+  "package_bytes": 40027227,
+  "binary_sha256": "2835d3b74446c3576453ab390c9568410f4796979377be8ed409695c42adc24e",
+  "binary_bytes": 44333056,
+  "automated_tests": "7/7 passed; reports/automated-tests.log",
   "real_daw_listening_tested": false,
   "files": {
-    "Contents/Resources/moduleinfo.json": "64b953cc6f519af97b5337bd7937802a951c48085366ab6d27365b803c54bcae",
-    "Contents/x86_64-win/Prued FX.vst3": "0c8bb1999ee44a23f98b5a1f4722453185afed4a96e55d7e73a28f4dca02d39e"
-  }
+    "Contents/Resources/moduleinfo.json": "a9c7e878223820624a2ff6ad0528702992e50ff4c6d8f21f28b11436b226e015",
+    "Contents/x86_64-win/Prued FX.vst3": "2835d3b74446c3576453ab390c9568410f4796979377be8ed409695c42adc24e"
+  },
+  "upstream_mac_commit": "31addc3624262510a934f3f2b9c614e7638f935b",
+  "installer_sha256": "655dce50f2eb3cd12f0fe458effddd1f6cfae5fa3f09fdae94d1428a982dbb68",
+  "official_zip_sha256": "067e18417f771655fd716430e7f8b885ba77c1c8aa48308f26ab1ceb642e4fb0",
+  "installer_validation": "Fresh install and upgrade from 2.0.1; isolated directory; every bundle hash matches; installed VST3Smoke passed"
 }

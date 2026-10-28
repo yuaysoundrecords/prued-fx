@@ -1,3 +1,13 @@
+# Prued FX 2.0.4 — Free
+
+Windows x64 uses the exact shared DSP/editor source from Mac commit 31addc3624262510a934f3f2b9c614e7638f935b. No activation key or time limit. Output defaults to 0 dB; saved sessions retain their values. Includes the full-wet Stutter fix and supplied optional Ko-fi button artwork.
+
+Build and test Windows: powershell -File scripts/build-windows.ps1
+Build Setup after all seven tests pass: powershell -File scripts/build-windows-installer.ps1
+Requires JUCE 8.0.12, Visual Studio 2022 or newer and Inno Setup 6 for the installer. See INSTALL-WINDOWS.md and RELEASE-STATUS.md.
+
+The records below describe earlier development versions and their former trial restrictions.
+
 # Prued FX
 
 ## 2.0.2 Mac dry-leak fix (25 October 2026)
@@ -54,3 +64,4 @@ Source เดิมกู้คืนจาก `D:\JUICED\Yuay Stutter.rar` แ�
 - AGENTS.md — ข้อกำหนดสำหรับทำงานต่อ
 
 สำเนานี้ไม่ได้แก้ไขไฟล์ปลั๊กอินที่ติดตั้งอยู่ และไม่ได้ติดตั้งทับในเครื่อง
+

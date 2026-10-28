@@ -1,25 +1,11 @@
-# Prued FX 2.0.1 — Windows x64 VST3
+# Prued FX 2.0.4 — Windows x64 VST3
 
-## ติดตั้ง / Install
+Close your DAW. Run Prued-FX-2.0.4-Windows-x64-Setup.exe and approve the administrator prompt. The installer updates only C:\Program Files\Common Files\VST3\Prued FX.vst3. Reopen your DAW and rescan VST3. Saved sessions retain their parameter values.
 
-1. ปิด DAW และสำรอง Prued FX รุ่นเดิมก่อน / Close your DAW and back up the previous plugin.
-2. แตก ZIP แล้วคัดลอกทั้งโฟลเดอร์ `Prued FX.vst3` ไปที่ `C:\Program Files\Common Files\VST3` / Extract the ZIP and copy the entire `Prued FX.vst3` folder into that location.
-3. เปิด DAW แล้ว rescan VST3 / Reopen your DAW and rescan VST3 plugins.
+ปิด DAW เปิดตัวติดตั้ง Setup.exe แล้วติดตั้ง จากนั้นเปิด DAW และสแกน VST3 ใหม่ ตัวติดตั้งอัปเดตเฉพาะ Prued FX.vst3 ไม่แก้ preset หรือโปรเจกต์ที่บันทึกไว้
 
-This update uses the original plugin IDs. Keep a backup of important sessions before replacing the previous version.
+For manual installation, extract the ZIP and copy the complete Prued FX.vst3 folder to the same location. Choose either installer or manual installation.
 
-## ใช้งาน / Use
+Free without activation or time limit. New instances start at Output 0 dB. Optional Ko-fi support is available in the plug-in. Includes the Mac 2.0.4 shared Stutter dry-leak fix and supplied Ko-fi artwork.
 
-Play audio into the effect, then turn the original Stutter knob to capture and repeat. Return it to zero to release the loop. Fix/Yuay controls refresh behavior. Output, Dry/Wet and Bypass remain in their original positions.
-
-ฟรี 30 นาทีต่อ instance เมื่อครบจะกลับเป็นเสียง dry ถอดแล้วใส่ใหม่เริ่มนับใหม่
-
-Free use lasts 30 minutes of processed audio per instance. At expiry the effect fades to dry; the track is not muted. Remove and reinsert the plugin for another 30 minutes. Closing the editor or loading a preset does not reset the timer.
-
-## ปลดล็อก / Activate
-
-ซื้อ Prued FX ที่ https://benjilennon.gumroad.com/l/rkpck แล้วใช้ License Key จากใบเสร็จ คลิกขวาบนหน้าปลั๊กอิน เลือก Activate / License status ใส่คีย์และกด Activate
-
-Buy Prued FX at the link above. Right-click the editor, choose Activate / License status, and enter the key from your Gumroad receipt. Initial activation requires internet. See LICENSING.md for secure storage and offline use details.
-
-This package contains the Windows version only. macOS 2.0 is in preparation.
+The installer is not digitally signed. Download only from the official Yuay Sound Records product or repository. Windows 10/11 x64; requires a VST3 host. No standalone application.

@@ -1,3 +1,12 @@
+# Prued FX 2.0.4 — Windows update, 28 October 2026
+
+- Matches the shared Mac 2.0.4 source: corrected Stutter wet isolation, unity (0 dB) default output, supplied Ko-fi artwork.
+- Free without activation or time limit; optional Ko-fi support. Saved parameter values are retained.
+- Adds a Windows x64 VST3 Setup installer and preserves manual ZIP installation.
+- Existing artwork, knob layout, bypass fix, plugin IDs and parameter IDs are retained.
+
+Earlier release records follow; demo/key restrictions below describe those old versions only.
+
 # Prued FX 2.0.2 — 25 October 2026
 
 - Fixed live dry input leaking into frozen Stutter at partial knob positions, even with Dry/Wet at 100%. Stutter engages the loop and selects repeat rate; it no longer scales internal wet activation by the knob amount.
@@ -23,3 +32,4 @@ Released for Windows on 23 October 2026. Creator accepted the Windows RC2 build.
 - A Gumroad license key unlocks unlimited use in the same plugin. Right-click the editor to activate.
 
 Windows x64 VST3. macOS 2.0 source/build preparation is available on the development branch; no macOS 2.0 binary is released yet.
+
